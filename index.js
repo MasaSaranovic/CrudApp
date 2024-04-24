@@ -9,6 +9,7 @@ app.get('/', (req, res) => {
     res.send("Hello from Node API");
 })
 
+//get products
 app.get('/api/products', async (req, res) => {
     try {
         const products = await Product.find({});
@@ -18,6 +19,7 @@ app.get('/api/products', async (req, res) => {
     }
 })
 
+//get product by ID
 app.get('/api/product/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -29,6 +31,7 @@ app.get('/api/product/:id', async (req, res) => {
     }
 })
 
+// create a product
 app.post('/api/products', async (req, res) => {
     try {
         const product = await Product.create(req.body);
@@ -57,7 +60,6 @@ app.put('/api/product/:id', async (req, res) => {
 })
 
 // delete a product
-
 app.delete('/api/product/:id', async (req, res) => {
     try {
         const { id } = req.params;
